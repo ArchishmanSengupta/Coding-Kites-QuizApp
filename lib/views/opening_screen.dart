@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_number_trivia/themes/routes.dart';
 
 class OpeningPage extends StatelessWidget {
   @override
@@ -7,8 +8,8 @@ class OpeningPage extends StatelessWidget {
     final mq= MediaQuery.of(context);
     final logo= Image.asset(
       "assets/logo.jpg", 
-      fit: BoxFit.contain);
-
+      height: mq.size.height/4,);
+      Spacer();
 
       final loginButton= Material(
         elevation: 5.0,
@@ -27,7 +28,7 @@ class OpeningPage extends StatelessWidget {
             ),
             ),
             onPressed: (){
-              print("Login Pressed");
+              Navigator.of(context).pushNamed(AppRoutes.authLogin);
             },
 
         ),
@@ -51,7 +52,7 @@ class OpeningPage extends StatelessWidget {
             ),
             ),
             onPressed: (){
-              print("Registering");
+              Navigator.of(context).pushNamed(AppRoutes.authRegister);
             },
         ),
       );
@@ -62,7 +63,8 @@ class OpeningPage extends StatelessWidget {
         children :<Widget> [
           loginButton,
           Padding(
-            padding: EdgeInsets.all(12) ),
+            padding: EdgeInsets.all(12),
+            ),
           registerButton,
         ],
       );
@@ -75,6 +77,8 @@ class OpeningPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             logo,
+            Padding(
+            padding: EdgeInsets.all(110) ),
             buttons,
           ],
         )

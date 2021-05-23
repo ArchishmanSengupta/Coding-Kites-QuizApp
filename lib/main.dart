@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_number_trivia/themes/routes.dart';
 import 'package:flutter_number_trivia/views/opening_screen.dart';
 
 void main() {
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Coding Kites Quiz',
+      routes: AppRoutes.define(),
       
       home: OpeningPage(
         
