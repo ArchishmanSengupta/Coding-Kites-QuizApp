@@ -92,6 +92,62 @@ class _loginViewState extends State<loginPage> {
           ],
         )
       );
+
+      final bottom=Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children : <Widget> [
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children : <Widget> [
+                Text("Not a member?",
+              style: Theme.of(context).textTheme.subtitle1.copyWith(
+                color: Colors.white,
+              ),
+              ),
+              MaterialButton(
+                child: Text("Sign Up",
+                style: Theme.of(context).textTheme.subtitle1.copyWith(
+                  color: Colors.white,
+                  decoration:TextDecoration.underline,
+                  ),
+                  ),
+              ),
+              ],
+              
+            )
+      
+        ],
+      );
+
+      final loginButton= Material(
+        elevation: 5.0,
+        borderRadius: BorderRadius.circular(25.0),
+        color: Colors.white,
+        //for round shape
+        child: MaterialButton(
+          minWidth: mq.size.width /1.2, // this will take up the width 1.2x
+          padding: EdgeInsets.fromLTRB(10.0, 15.0,10.0,15.0),
+          child: Text("Login", 
+          style:  TextStyle(
+            fontSize: 20.0, 
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+
+            ),
+            ),
+            onPressed: (){
+              // TODO;
+            },
+        ),
+      );
+
+
+
+
     return Scaffold(
       backgroundColor: Colors.blueAccent,
       body:
@@ -105,7 +161,8 @@ class _loginViewState extends State<loginPage> {
               logo, 
               emailField,
               passwordField, 
-              // bottom,
+              bottom,
+              loginButton,
 
             ],
 
