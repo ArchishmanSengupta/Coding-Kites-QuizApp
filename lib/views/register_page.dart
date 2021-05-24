@@ -28,6 +28,7 @@ class registerPage extends StatelessWidget {
           color: Colors.black,
           ),
            decoration: InputDecoration(
+             focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.black)),
             hintText: "Sheldon Cooper",
             labelText: "Username",
             labelStyle: TextStyle(color: Colors.black,),
@@ -46,6 +47,7 @@ class registerPage extends StatelessWidget {
           color: Colors.black,
           ),
            decoration: InputDecoration(
+             focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.black)),
             hintText: "something@email.com",
             labelText: "Email",
             labelStyle: TextStyle(color: Colors.black,),
@@ -64,6 +66,7 @@ class registerPage extends StatelessWidget {
           color: Colors.black,
           ),
            decoration: InputDecoration(
+             focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.black)),
             hintText: "Password",
             labelText: "Password",
             labelStyle: TextStyle(color: Colors.black,),
@@ -82,6 +85,7 @@ class registerPage extends StatelessWidget {
           color: Colors.black,
           ),
            decoration: InputDecoration(
+             focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.black)),
             hintText: "rePassword",
             labelText: "rePassword",
             labelStyle: TextStyle(color: Colors.black,),
