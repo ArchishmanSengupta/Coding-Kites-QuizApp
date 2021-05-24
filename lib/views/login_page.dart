@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_number_trivia/themes/routes.dart';
 
 class loginPage extends StatefulWidget {
   @override
@@ -8,12 +9,13 @@ class loginPage extends StatefulWidget {
 }
 
 class _loginViewState extends State<loginPage> {
-
+  TextEditingController _emailController;
 // Form to capture Email/Password
   final _formKey= GlobalKey<FormState>();
-  TextEditingController _emailController;
+
   TextEditingController _passwordController;
-  bool isSubmitting = false;
+
+//  bool isSubmitting = false;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class _loginViewState extends State<loginPage> {
       
       //Email
       final emailField=TextFormField(
-        enabled: isSubmitting, // submission is done
+        //enabled: isSubmitting, // submission is done
         controller: _emailController,
         keyboardType: TextInputType.emailAddress,
         style: TextStyle(
@@ -35,7 +37,7 @@ class _loginViewState extends State<loginPage> {
             hintText: "something@email.com",
             labelText: "Email",
             hintStyle: TextStyle(
-              color: Colors.white,
+              color: Colors.black38,
             ),
           )
         );
@@ -44,9 +46,9 @@ class _loginViewState extends State<loginPage> {
       final passwordField=Column(
         children: <Widget> [
           TextFormField(
-        enabled: isSubmitting, // submission is done
+        //enabled: isSubmitting, // submission is done
         controller: _passwordController,
-        keyboardType: TextInputType.emailAddress,
+        // keyboardType: TextInputType.emailAddress,
         style: TextStyle(
           color: Colors.white,
           ),
@@ -54,7 +56,7 @@ class _loginViewState extends State<loginPage> {
             hintText: "Password",
             labelText: "Password",
             hintStyle: TextStyle(
-              color: Colors.white,
+              color: Colors.black38,
             ),
           ),
         ),
@@ -67,7 +69,10 @@ class _loginViewState extends State<loginPage> {
             MaterialButton(
               child: Text("Forgot Password?",
               style: Theme.of(
-                context).textTheme.caption.copyWith(color: Colors.white),
+                context)
+                .textTheme
+                .caption
+                .copyWith(color: Colors.black38),
                 ),
                 onPressed: (){
               //TODO : create forgot password
@@ -85,17 +90,37 @@ class _loginViewState extends State<loginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children : <Widget> [
-            //emailField
-            //Password field
-
-
+            emailField,
+            passwordField,
           ],
-        )
+        ),
+      );
+
+      final loginButton= Material(
+        elevation: 5.0,
+        borderRadius: BorderRadius.circular(25.0),
+        color: Color(0xff5B75A6),
+        //for round shape
+        child: MaterialButton(
+          minWidth: mq.size.width /1.2, // this will take up the width 1.2x
+          padding: EdgeInsets.fromLTRB(10.0, 15.0,10.0,15.0),
+          child: Text("Login ➡️", 
+          style:  TextStyle(
+            fontSize: 20.0, 
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+
+            ),
+            ),
+            onPressed: (){
+              // TODO;
+            },
+        ),
       );
 
       final bottom=Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children : <Widget> [
           Padding(
             padding: EdgeInsets.all(8.0),
@@ -105,13 +130,16 @@ class _loginViewState extends State<loginPage> {
               children : <Widget> [
                 Text("Not a member?",
               style: Theme.of(context).textTheme.subtitle1.copyWith(
-                color: Colors.white,
+                color: Colors.black,
               ),
               ),
               MaterialButton(
+                onPressed:(){
+                  Navigator.of(context).pushNamed(AppRoutes.authRegister);
+                },
                 child: Text("Sign Up",
                 style: Theme.of(context).textTheme.subtitle1.copyWith(
-                  color: Colors.white,
+                  color: Colors.black,
                   decoration:TextDecoration.underline,
                   ),
                   ),
@@ -123,55 +151,39 @@ class _loginViewState extends State<loginPage> {
         ],
       );
 
-      final loginButton= Material(
-        elevation: 5.0,
-        borderRadius: BorderRadius.circular(25.0),
-        color: Colors.white,
-        //for round shape
-        child: MaterialButton(
-          minWidth: mq.size.width /1.2, // this will take up the width 1.2x
-          padding: EdgeInsets.fromLTRB(10.0, 15.0,10.0,15.0),
-          child: Text("Login", 
-          style:  TextStyle(
-            fontSize: 20.0, 
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-
-            ),
-            ),
-            onPressed: (){
-              // TODO;
-            },
-        ),
-      );
+     
 
 
 
 
     return Scaffold(
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Color(0xffE6E2D6),
       body:
       Form(
         key: _formKey,
         child: SingleChildScrollView(
           padding: EdgeInsets.all(36),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children : <Widget> [
-              logo, 
-              emailField,
-              passwordField, 
-              bottom,
-              loginButton,
-
-            ],
-
+          child: Container(
+            
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisSize: MainAxisSize.min,
+              children : <Widget> [
+                logo,
+                Padding(
+                 padding: EdgeInsets.all(50) ),
+                fields,
+                 Padding(
+                 padding: EdgeInsets.all(60) ),
+                // emailField,
+                // passwordField, 
+                loginButton,
+                bottom,
+              ],
+            ),
           ),
         ),
-
-        )
-
-      
+        ), 
     );
   }
 }

@@ -10,11 +10,10 @@ class OpeningPage extends StatelessWidget {
       "assets/logo.jpg", 
       height: mq.size.height/4,);
       Spacer();
-
       final loginButton= Material(
         elevation: 5.0,
         borderRadius: BorderRadius.circular(25.0),
-        color: Colors.white,
+        color: Color(0xff5B75A6),
         //for round shape
         child: MaterialButton(
           minWidth: mq.size.width /1.2, // this will take up the width 1.2x
@@ -78,7 +77,7 @@ class OpeningPage extends StatelessWidget {
           children: <Widget>[
             logo,
             Padding(
-            padding: EdgeInsets.all(110) ),
+            padding: EdgeInsets.all(170) ),
             buttons,
           ],
         )
