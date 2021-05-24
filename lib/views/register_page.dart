@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_number_trivia/themes/routes.dart';
 
+import 'package:firebase_auth/firebase_auth.dart';
+
 class registerPage extends StatelessWidget {
   
   // Form to capture Email/Password
@@ -126,8 +128,28 @@ class registerPage extends StatelessWidget {
 
             ),
             ),
-            onPressed: (){
-              // TODO;
+            onPressed: () async{
+            try{
+              FirebaseUser user = {
+                await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                  email: _emailController.text,
+                   password: _passwordController.text,)} as FirebaseUser;
+                if(user!=null){
+                  UserUpdate.Info updateUser = UserUpdateInfo();
+                  updateUser.displayName=_usernameController.text;
+                  user.updateProfile(UpdateUser);
+                  Navigator.of(context).pushNamed(AppRoutes.menu);
+
+                }
+            } catch(e){
+              print(e);
+                _usernameController.text ="";
+              _passwordController.text ="";
+              _repasswordController.text ="";
+            _emailController.text ="";
+              
+               //TODO: Alert dialogue
+            }
             },
         ),
       );

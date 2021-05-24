@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_number_trivia/themes/routes.dart';
 
+import 'package:firebase_auth/firebase_auth.dart';
+
 class loginPage extends StatefulWidget {
   @override
   _loginViewState createState() => _loginViewState();

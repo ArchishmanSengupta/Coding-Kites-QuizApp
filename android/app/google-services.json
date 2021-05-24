@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "285427900774",
+    "project_id": "quizapp-f86d7",
+    "storage_bucket": "quizapp-f86d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285427900774:android:09467507fa66f9f6f468a7",
+        "android_client_info": {
+          "package_name": "com.example.flutter_number_trivia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "285427900774-mk7kjfmsj0cbn3a8lrjbvm7d50gu87j4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2JwfDgCsxgk2hMMwZ-fAlWJf_kHSlVEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "285427900774-mk7kjfmsj0cbn3a8lrjbvm7d50gu87j4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
