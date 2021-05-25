@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_number_trivia/themes/routes.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_number_trivia/views/opening_screen.dart';
 
 void main() {

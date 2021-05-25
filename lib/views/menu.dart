@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 
 class MenuScreen extends StatefulWidget {
   @override
-  _MenuScreenState createState() => _MenuScreenState();
+  MenuScreenState createState() => MenuScreenState();
 }
-
-class _MenuScreenState extends State<MenuScreen> {
-  @override
+class MenuScreenState extends State<MenuScreen> {
+  MenuScreenState();
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: null,
-      body: Text("Play CS Quiz here"),
       
     );
   }

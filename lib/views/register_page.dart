@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_number_trivia/themes/routes.dart';
+import 'package:flutter_number_trivia/views/menu.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 
-class registerPage extends StatelessWidget {
+class registerPage extends StatefulWidget {
   
   // Form to capture Email/Password
-  final _formKey= GlobalKey<FormState>();
-  TextEditingController _usernameController;
-  TextEditingController _emailController;
-  TextEditingController _passwordController;
-  TextEditingController _repasswordController;
+  @override
+  _registerPageState createState() => _registerPageState();
+}
 
-//  bool isSubmitting = false;
+class _registerPageState extends State<registerPage> {
+  final _formKey= GlobalKey<FormState>();
+
+  TextEditingController _usernameController;
+
+  TextEditingController _emailController;
+
+  TextEditingController _passwordController;
+
+  TextEditingController _repasswordController;
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +120,7 @@ class registerPage extends StatelessWidget {
         ),
       );
 
-      final loginButton= Material(
+      final registerButton= Material(
         elevation: 5.0,
         borderRadius: BorderRadius.circular(25.0),
         color: Color(0xff5B75A6),
@@ -129,27 +137,31 @@ class registerPage extends StatelessWidget {
             ),
             ),
             onPressed: () async{
-            try{
-              FirebaseUser user = {
+
+
+              try{
+                User user =(
                 await FirebaseAuth.instance.createUserWithEmailAndPassword(
                   email: _emailController.text,
-                   password: _passwordController.text,)} as FirebaseUser;
+                  password: _passwordController.text,
+                )).user;
                 if(user!=null){
-                  UserUpdate.Info updateUser = UserUpdateInfo();
-                  updateUser.displayName=_usernameController.text;
-                  user.updateProfile(UpdateUser);
+                await 
+                FirebaseAuth.instance.currentUser.updateProfile(
+                  displayName:
+                  user.displayName
+                  );
+                  //Navigate after sign up
                   Navigator.of(context).pushNamed(AppRoutes.menu);
-
                 }
-            } catch(e){
-              print(e);
+
+              }catch(e){
+                print(e);
                 _usernameController.text ="";
-              _passwordController.text ="";
-              _repasswordController.text ="";
-            _emailController.text ="";
-              
-               //TODO: Alert dialogue
-            }
+                _passwordController.text ="";
+                _repasswordController.text ="";
+                _emailController.text ="";
+              }
             },
         ),
       );
@@ -209,7 +221,7 @@ class registerPage extends StatelessWidget {
                  padding: EdgeInsets.all(60) ),
                 // emailField,
                 // passwordField, 
-                loginButton,
+              registerButton,
                 bottom,
               ],
             ),
